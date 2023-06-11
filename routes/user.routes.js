@@ -9,16 +9,16 @@ userRouter.post("/register",async(req,res)=>{
     try{
         bcrypt.hash(pass,5,async(err,hash)=>{
             if(err){
-                res.json({message:err.message})
+                res.send(err.message)
             }else{
                 const user= new userModel({name,email,pass:hash})
                 await user.save()
-                res.json({message:"user registered",user:req.body})
+                res.send({message:"user registered",user:req.body})
             }
         })
        
     }catch(err){
-        res.json({message:err.message})
+        res.send({message:err.message})
     }
 })
 
