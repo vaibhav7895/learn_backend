@@ -10,6 +10,8 @@ const notesSchema=mongoose.Schema({
     versionKey:false
 })
 
+
+
 const NotesModel=mongoose.model("note",notesSchema)
 
 module.exports={
